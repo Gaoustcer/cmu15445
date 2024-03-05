@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <set>
+#include <utility>
 namespace bustub {
 
 /** @brief Unique ID type. */
@@ -12,6 +13,7 @@ using uid_t = int64_t;
 template <typename T>
 class ORSet {
  public:
+  std::set<pair<T,uid_t>> Addset,Removeset;
   ORSet() = default;
 
   /**
@@ -21,7 +23,7 @@ class ORSet {
    * @return true if the element is in the set, and false otherwise.
    */
   auto Contains(const T &elem) const -> bool;
-
+  void hello();
   /**
    * @brief Adds an element to the set.
    *
@@ -59,6 +61,8 @@ class ORSet {
   auto ToString() const -> std::string;
 
  private:
+  
+  // std::set<uid_t>
   // TODO(student): Add your private memeber variables to represent ORSet.
 };
 
