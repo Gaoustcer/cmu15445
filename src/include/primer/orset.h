@@ -13,7 +13,7 @@ using uid_t = int64_t;
 template <typename T>
 class ORSet {
  public:
-  std::set<pair<T,uid_t>> Addset,Removeset;
+  std::set<std::pair<T,uid_t>> Addset,Removeset;
   ORSet() = default;
 
   /**

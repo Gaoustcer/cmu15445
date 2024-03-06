@@ -50,7 +50,7 @@ void ORSet<T>::Remove(const T &elem) {
       // this->Addset.erase();
     }
   }
-  for(auto element: vec_remove){
+  for(auto element = vec_remove.begin(); element != vec_remove.end(); element++){
     this->Removeset.insert(std::pair<T,uid_t>(element->first,element->second));
     this->Addset.erase(std::pair<T,uid_t>(element->first,element->second)); 
   }
