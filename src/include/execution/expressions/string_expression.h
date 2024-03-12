@@ -52,7 +52,7 @@ class StringExpression : public AbstractExpression {
     if(this->expr_type_ == StringExpressionType::Lower){
       for(long unsigned int i = 0;i < val.size();i++){
         if(val[i] >= 'A' && val[i] <= 'Z'){
-          s.push_back(val[i] - 32);
+          s.push_back(val[i] + 'a' - 'A');
         }
         else{
           s.push_back(val[i]);
@@ -62,7 +62,7 @@ class StringExpression : public AbstractExpression {
     else{
       for(long unsigned int i = 0;i < val.size();i++){
         if(val[i] >= 'a' && val[i] <= 'z'){
-          s.push_back(val[i] + 32);
+          s.push_back(val[i] + 'A' - 'a');
         }
         else{
           s.push_back(val[i]);

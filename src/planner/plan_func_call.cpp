@@ -29,6 +29,31 @@ auto Planner::GetFuncCallFromFactory(const std::string &func_name, std::vector<A
   // 1. check if the parsed function name is "lower" or "upper".
   // 2. verify the number of args (should be 1), refer to the test cases for when you should throw an `Exception`.
   // 3. return a `StringExpression` std::shared_ptr.
+
+  if(func_name == "upper" || func_name == "lower"){
+      if(args.size() != 1){
+        throw Exception(fmt::format("More than one parameter"));
+      }
+      else{
+        StringExpressionType typeexp;
+        if(func_name == "upper"){
+          typeexp = StringExpressionType::Upper;
+        }
+        else{
+          typeexp = StringExpressionType::Lower;
+        }
+        StringExpression* Strexp = new StringExpression(args[0],typeexp);
+        return AbstractExpressionRef(Strexp);
+        // return std::make_shared()
+        // return AbstractExpressionRef(Strexp);
+        // std::vector<string>
+        // return (Strexp.Compute(args[0]->ToString()));
+        // return std::shared_ptr<AbstractExpression>(AbstractExpression(StringExpression::Compute(args[0]->ToString())));
+        // std::cout << func_name << std::endl;  
+      }
+      // std::cout << func_name << std::endl;
+  }
+  
   throw Exception(fmt::format("func call {} not supported in planner yet", func_name));
 }
 
